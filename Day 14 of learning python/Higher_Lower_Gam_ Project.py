@@ -4,6 +4,11 @@
 
 
 import random
+import os
+#clearing the screen between rounds
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 data = [
     {
@@ -74,6 +79,7 @@ score = 0
 game_should_continue = True
 account_b = random.choice(data)
 
+
 # make the game repeatable
 while game_should_continue:
 
@@ -119,7 +125,7 @@ while game_should_continue:
             return guess == "b"
 
     is_correct = check_answer(guess, a_follower_count, b_follower_count)
-
+    clear()
     # giving user feedback on their guess
     # score keeping
     if is_correct:
@@ -128,3 +134,5 @@ while game_should_continue:
     else:
         game_should_continue = False
         print(f"Sorry, that's wrong Current score: {score}")
+
+
